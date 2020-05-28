@@ -9,13 +9,13 @@ import java.util.*
 @Entity(tableName = "paciente_table")
 data class PacienteEntity(
 
-    @PrimaryKey(autoGenerate = false) @ColumnInfo(name = "dni") var dni: String = "",
-    @ColumnInfo(name = "grupo_id") var grupoId: Int = -1,
-    @ColumnInfo(name = "nombre") var nombre: String = "",
-    @ColumnInfo(name = "apellido_paterno") var apellidoPaterno: String = "",
-    @ColumnInfo(name = "apellido_materno") var apellidoMaterno: String = "",
+    @PrimaryKey(autoGenerate = false) @ColumnInfo(name = "dni") var dni: String,
+    @ColumnInfo(name = "grupo_id") var grupoId: Int,
+    @ColumnInfo(name = "nombre") var nombre: String,
+    @ColumnInfo(name = "apellido_paterno") var apellidoPaterno: String,
+    @ColumnInfo(name = "apellido_materno") var apellidoMaterno: String,
     @ColumnInfo(name = "fecha_nacimiento") var fechaNacimiento: Date?,
-    @ColumnInfo(name = "sexo") var sexo: Int = -1
+    @ColumnInfo(name = "sexo") var sexo: Int
 
 ) : Serializable {
 
