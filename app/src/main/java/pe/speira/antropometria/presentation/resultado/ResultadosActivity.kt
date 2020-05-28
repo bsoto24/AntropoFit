@@ -9,8 +9,8 @@ import pe.speira.antropometria.room.entities.PacienteEntity
 
 class ResultadosActivity : AppCompatActivity() {
 
-    lateinit var controlEntity: ControlEntity
-    lateinit var pacienteEntity: PacienteEntity
+    private var controlEntity: ControlEntity? = null
+    private var pacienteEntity: PacienteEntity? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,21 +28,23 @@ class ResultadosActivity : AppCompatActivity() {
     }
 
     private fun obtenerControl() {
-        controlEntity = intent?.extras?.get("control") as ControlEntity
+        controlEntity = intent.getParcelableExtra("control")
     }
 
 
     private fun obtenerPaciente() {
-        pacienteEntity = intent?.extras?.get("paciente") as PacienteEntity
+        pacienteEntity = intent.getParcelableExtra("paciente")
     }
 
-    private fun setupControl(controlEntity: ControlEntity) {
-        tv_peso.text = "${String.format("%.2f", controlEntity.peso)} kg"
-        tv_talla.text = "${String.format("%.2f", controlEntity.talla)} m"
-        tv_pBicipital.text = String.format("%.2f", controlEntity.pBicipital)
-        tv_pSubEscapital.text = String.format("%.2f", controlEntity.pSubescapular)
-        tv_pSuprailiaco.text = String.format("%.2f", controlEntity.pSuprailiaco)
-        tv_pTricipital.text = String.format("%.2f", controlEntity.pTricipital)
+    private fun setupControl(controlEntity: ControlEntity?) {
+        controlEntity?.let { control ->
+            tv_peso.text = "${String.format("%.2f", control.peso)} kg"
+            tv_talla.text = "${String.format("%.2f", control.talla)} m"
+            tv_pBicipital.text = String.format("%.2f", control.antropometria.pBicipital)
+            tv_pSubEscapital.text = String.format("%.2f", control.antropometria.pSubescapular)
+            tv_pSuprailiaco.text = String.format("%.2f", control.antropometria.pSuprailiaco)
+            tv_pTricipital.text = String.format("%.2f", control.antropometria.pTricipital)
+        }
     }
 
 }

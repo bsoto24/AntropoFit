@@ -18,8 +18,7 @@ import java.util.*
 
 class RegistroPacienteActivity : AppCompatActivity() {
 
-    lateinit var grupo: GrupoEntity
-
+    private var grupoEntity: GrupoEntity? = null
     private lateinit var pacienteViewModel: PacienteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +34,7 @@ class RegistroPacienteActivity : AppCompatActivity() {
     }
 
     private fun obtenerGrupo() {
-        grupo = intent?.extras?.get("grupo") as GrupoEntity
+        grupoEntity = intent.getParcelableExtra("grupo")
     }
 
     private fun setupButtons() {
@@ -52,18 +51,20 @@ class RegistroPacienteActivity : AppCompatActivity() {
                 edt_apellido_materno.text.toString().trim().isNotEmpty() and
                 edt_fecha_nacimiento.text.toString().trim().isNotEmpty()
             ) {
-                pacienteViewModel.registrarPaciente(
-                    PacienteEntity(
-                        grupoId = grupo.grupoId,
-                        dni = edt_dni.text.toString(),
-                        nombre = edt_nombres.text.toString(),
-                        apellidoPaterno = edt_apellido_paterno.text.toString(),
-                        apellidoMaterno = edt_apellido_materno.text.toString(),
-                        fechaNacimiento = SimpleDateFormat("yyyy/M/d", Locale.ENGLISH).parse(edt_fecha_nacimiento.text.toString().trim()),
-                        sexo = spn_sexo.selectedItemPosition
+                grupoEntity?.let { grupo ->
+                    pacienteViewModel.registrarPaciente(
+                        PacienteEntity(
+                            grupoId = grupo.grupoId,
+                            dni = edt_dni.text.toString(),
+                            nombre = edt_nombres.text.toString(),
+                            apellidoPaterno = edt_apellido_paterno.text.toString(),
+                            apellidoMaterno = edt_apellido_materno.text.toString(),
+                            fechaNacimiento = SimpleDateFormat("yyyy/M/d", Locale.ENGLISH).parse(edt_fecha_nacimiento.text.toString().trim()),
+                            sexo = spn_sexo.selectedItemPosition
+                        )
                     )
-                )
-                finish()
+                    finish()
+                }
             } else {
                 Snackbar.make(container, "Todos los campos son obligatorios", Snackbar.LENGTH_SHORT).show()
             }

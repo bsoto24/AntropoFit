@@ -10,15 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_pacientes.*
 import pe.speira.antropometria.R
 import pe.speira.antropometria.room.entities.GrupoEntity
-import pe.speira.antropometria.room.entities.PacienteEntity
 import pe.speira.antropometria.room.viewmodel.PacienteViewModel
 import pe.speira.antropometria.presentation.detallePaciente.DetallePacienteActivity
 import pe.speira.antropometria.presentation.registroPaciente.RegistroPacienteActivity
 
 class PacientesActivity : AppCompatActivity() {
 
-    lateinit var adapter: PacientesAdapter
-    lateinit var grupo: GrupoEntity
+    private lateinit var adapter: PacientesAdapter
+    private var grupoEntity: GrupoEntity? = null
     private lateinit var pacienteViewModel: PacienteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +25,7 @@ class PacientesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pacientes)
         setupViewModel()
         obtenerGrupo()
-        setupToolbar(grupo.grupoNombre, true)
+        setupToolbar(grupoEntity?.grupoNombre, true)
         setupAdapter()
         setupButtons()
         setupObserver()
@@ -37,24 +36,26 @@ class PacientesActivity : AppCompatActivity() {
     }
 
     private fun setupObserver() {
-        pacienteViewModel.obtenerPacientes(grupo.grupoId)
-            .observe(this, Observer<List<PacienteEntity>> { pacientes ->
-                if (pacientes.isNotEmpty()) {
-                    rv_pacientes.visibility = View.VISIBLE
-                    img_empty.visibility = View.GONE
-                } else {
-                    rv_pacientes.visibility = View.GONE
-                    img_empty.visibility = View.VISIBLE
-                }
-                adapter.update(pacientes)
-            })
+        grupoEntity?.let { grupo ->
+            pacienteViewModel.obtenerPacientes(grupo.grupoId)
+                .observe(this, Observer { pacientes ->
+                    if (pacientes.isNotEmpty()) {
+                        rv_pacientes.visibility = View.VISIBLE
+                        img_empty.visibility = View.GONE
+                    } else {
+                        rv_pacientes.visibility = View.GONE
+                        img_empty.visibility = View.VISIBLE
+                    }
+                    adapter.update(pacientes)
+                })
+        }
     }
 
     private fun obtenerGrupo() {
-        grupo = intent?.extras?.get("grupo") as GrupoEntity
+        grupoEntity = intent.getParcelableExtra("grupo")
     }
 
-    private fun setupToolbar(titulo: String, upEnable: Boolean) {
+    private fun setupToolbar(titulo: String?, upEnable: Boolean) {
         setSupportActionBar(toolbar)
         supportActionBar?.title = titulo
         supportActionBar?.setDisplayHomeAsUpEnabled(upEnable)
@@ -75,7 +76,7 @@ class PacientesActivity : AppCompatActivity() {
     private fun setupButtons() {
         fab_registro_paciente.setOnClickListener {
             val intent = Intent(this, RegistroPacienteActivity::class.java)
-            intent.putExtra("grupo", grupo)
+            intent.putExtra("grupo", grupoEntity)
             startActivity(intent)
         }
     }

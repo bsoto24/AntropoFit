@@ -11,12 +11,12 @@ import pe.speira.antropometria.room.entities.ControlEntity
 import pe.speira.antropometria.room.entities.PacienteEntity
 import pe.speira.antropometria.room.viewmodel.ControlViewModel
 import pe.speira.antropometria.presentation.resultado.ResultadosActivity
+import pe.speira.antropometria.room.entities.AntropometriaEntity
 import java.util.*
 
 class RegistroControlActivity : AppCompatActivity() {
 
-    lateinit var paciente: PacienteEntity
-
+    private var pacienteEntity: PacienteEntity? = null
     private lateinit var controlViewModel: ControlViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class RegistroControlActivity : AppCompatActivity() {
     }
 
     private fun obtenerPaciente() {
-        paciente = intent?.extras?.get("paciente") as PacienteEntity
+        pacienteEntity = intent.getParcelableExtra("paciente")
     }
 
     private fun setupButtons() {
@@ -45,25 +45,30 @@ class RegistroControlActivity : AppCompatActivity() {
                 edt_pBicipital.text.toString().trim().isNotEmpty() and
                 edt_pTricipital.text.toString().trim().isNotEmpty()
             ) {
-                val controlEntity = ControlEntity(
-                    0,
-                    pacienteDni = paciente.dni,
-                    peso = edt_peso.text.toString().toDouble(),
-                    talla = edt_talla.text.toString().toDouble(),
-                    pSuprailiaco = edt_pSuprailiaco.text.toString().toDouble(),
-                    pSubescapular = edt_pSubEscapital.text.toString().toDouble(),
-                    pBicipital = edt_pBicipital.text.toString().toDouble(),
-                    pTricipital = edt_pTricipital.text.toString().toDouble(),
-                    fechaRegistro = Date()
-                )
-                controlViewModel.registrarControl(controlEntity)
-                val intent = Intent(this, ResultadosActivity::class.java)
-                intent.putExtra("control", controlEntity)
-                intent.putExtra("paciente", paciente)
-                startActivity(intent)
-                finish()
+                pacienteEntity?.let { paciente ->
+                    val controlEntity = ControlEntity(
+                        0,
+                        pacienteDni = paciente.dni,
+                        peso = edt_peso.text.toString().toDouble(),
+                        talla = edt_talla.text.toString().toDouble(),
+                        antropometria = AntropometriaEntity(
+                            pSuprailiaco = edt_pSuprailiaco.text.toString().toDouble(),
+                            pSubescapular = edt_pSubEscapital.text.toString().toDouble(),
+                            pBicipital = edt_pBicipital.text.toString().toDouble(),
+                            pTricipital = edt_pTricipital.text.toString().toDouble()
+                        ),
+                        fechaRegistro = Date()
+                    )
+                    controlViewModel.registrarControl(controlEntity)
+                    val intent = Intent(this, ResultadosActivity::class.java)
+                    intent.putExtra("control", controlEntity)
+                    intent.putExtra("paciente", paciente)
+                    startActivity(intent)
+                    finish()
+                }
             } else {
-                Snackbar.make(container, "Todos los campos son obligatorios", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(container, "Todos los campos son obligatorios", Snackbar.LENGTH_SHORT)
+                    .show()
             }
         }
         btn_cerrar.setOnClickListener {
