@@ -1,0 +1,225 @@
+<resources>
+
+    <!-- Tema base -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">?themePrimaryColor</item>
+        <item name="colorPrimaryDark">?themePrimaryDarkColor</item>
+        <item name="colorAccent">?themeAccentColor</item>
+    </style>
+
+
+    <!-- Tema del aplicativo tottus -->
+    <style name="AppTheme.AntropometriaTheme">
+        <item name="themePrimaryColor">@color/gris</item>
+        <item name="themePrimaryDarkColor">@color/grisOscuro</item>
+        <item name="themePrimaryLightColor">@color/grisClaro</item>
+        <item name="themeAccentColor">@color/grisClaro</item>
+        <item name="themeAccentDarkColor">@color/grisClaro</item>
+        <item name="themeAccentLightColor">@color/amarillo</item>
+        <item name="themeBackgroundColor">@color/blanco</item>
+        <item name="themeTextColor">@color/gris</item>
+        <item name="themeTextColorOnPrimary">@color/blanco</item>
+        <item name="themeTextColorOnAccent">@color/grisOscuro</item>
+        <item name="themeTextColorLight">@color/grisClaro</item>
+        <item name="themeTextColorActive">@color/verde</item>
+        <item name="themeTextColorInactive">@color/grisClaro</item>
+        <item name="themeTextColorError">@color/rojo</item>
+    </style>
+
+
+    <!-- Estilo de boton gris -->
+    <style name="AppTheme.AntropometriaTheme.ButtonPrimary" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">@dimen/tottusTextParagraph</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">?themeTextColorOnAccent</item>
+        <item name="android:background">?themeAccentLightColor</item>
+    </style>
+
+
+    <!-- Estilo de texto negro para titulo -->
+    <style name="AppTheme.AntropometriaTheme.TextLargeDark">
+        <item name="android:textSize">@dimen/tottusTextLarge</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+    </style>
+
+    <style name="AppTheme.AntropometriaTheme.TextTitleDark">
+        <item name="android:textSize">@dimen/tottusTextTitle</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+    </style>
+
+    <!-- Estilo de texto negro para subtitulo -->
+    <style name="AppTheme.AntropometriaTheme.TextSubTitleDark">
+        <item name="android:textSize">@dimen/tottusTextSubTitle</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+    </style>
+
+    <!-- Estilo de texto negro para parrafos -->
+    <style name="AppTheme.AntropometriaTheme.TextParagraphDark">
+        <item name="android:textSize">@dimen/tottusTextParagraph</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">?themeTextColor</item>
+    </style>
+
+    <!-- Estilo de texto negro para parrafos pequeños -->
+    <style name="AppTheme.AntropometriaTheme.TextSubParagraphDark">
+        <item name="android:textSize">@dimen/tottusTextSubParagraph</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">?themeTextColor</item>
+    </style>
+
+    <!-- Estilo de texto negro para textos muy pequeños -->
+    <style name="AppTheme.AntropometriaTheme.TextLitleDark">
+        <item name="android:textSize">@dimen/tottusTextLitle</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">?themeTextColor</item>
+    </style>
+
+
+    <!-- Estilo de texto blanco para titulo -->
+    <style name="AppTheme.AntropometriaTheme.TextLargeLight">
+        <item name="android:textSize">@dimen/tottusTextLarge</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">?themeTextColorOnPrimary</item>
+    </style>
+
+    <style name="AppTheme.AntropometriaTheme.TextTitleLight">
+        <item name="android:textSize">@dimen/tottusTextTitle</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">?themeTextColorOnPrimary</item>
+    </style>
+
+    <!-- Estilo de texto blanco para parrafos -->
+    <style name="AppTheme.AntropometriaTheme.TextParagraphLight">
+        <item name="android:textSize">@dimen/tottusTextParagraph</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">?themeTextColorOnPrimary</item>
+    </style>
+
+    <!-- Estilo de texto blanco para parrafos pequeños -->
+    <style name="AppTheme.AntropometriaTheme.TextSubParagraphLight">
+        <item name="android:textSize">@dimen/tottusTextSubParagraph</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">?themeTextColorOnPrimary</item>
+    </style>
+
+    <!-- Estilo de texto blanco para textos muy pequeños -->
+    <style name="AppTheme.AntropometriaTheme.TextLitleLight">
+        <item name="android:textSize">@dimen/tottusTextLitle</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">?themeTextColorOnPrimary</item>
+    </style>
+
+
+    <!-- Estilo de texto verde para titulo -->
+    <style name="AppTheme.AntropometriaTheme.TextLargePrimary">
+        <item name="android:textSize">@dimen/tottusTextLarge</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">?themePrimaryColor</item>
+    </style>
+
+    <style name="AppTheme.AntropometriaTheme.TextTitlePrimary">
+        <item name="android:textSize">@dimen/tottusTextTitle</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">?themePrimaryColor</item>
+    </style>
+
+    <!-- Estilo de texto verde para subtitulo -->
+    <style name="AppTheme.AntropometriaTheme.TextSubTitlePrimary">
+        <item name="android:textSize">@dimen/tottusTextSubTitle</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">?themePrimaryColor</item>
+    </style>
+
+    <!-- Estilo de texto verde para parrafos -->
+    <style name="AppTheme.AntropometriaTheme.TextParagraphPrimary">
+        <item name="android:textSize">@dimen/tottusTextParagraph</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">?themePrimaryColor</item>
+    </style>
+
+    <!-- Estilo de texto verde para parrafos pequeños -->
+    <style name="AppTheme.AntropometriaTheme.TextSubParagraphPrimary">
+        <item name="android:textSize">@dimen/tottusTextSubParagraph</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">?themePrimaryColor</item>
+    </style>
+
+    <!-- Estilo de texto verde para textos muy pequeños -->
+
+
+    <!-- Estilo de texto verde para textos muy pequeños -->
+    <style name="AppTheme.AntropometriaTheme.EditTextDark">
+        <item name="android:textSize">@dimen/tottusTextSubTitle</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColorHint">?themeTextColorLight</item>
+        <item name="android:textColor">?themeTextColor</item>
+    </style>
+
+    <style name="AppTheme.AntropometriaTheme.EditText">
+        <item name="android:textColorHint">?themePrimaryLightColor</item>
+        <item name="android:textColorPrimary">?themeTextColor</item>
+        <item name="colorAccent">?themePrimaryLightColor</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="colorControlNormal">?themeTextColor</item>
+    </style>
+
+    <!-- Estilo de texto verde para textos muy pequeños -->
+    <style name="AppTheme.AntropometriaTheme.EditTextLight" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">@dimen/tottusTextSubTitle</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColorHint">?themeTextColorOnPrimary</item>
+        <item name="android:textColor">?themeTextColorOnPrimary</item>
+        <item name="android:textColorLink">?themeTextColorOnPrimary</item>
+        <item name="android:textColorSecondary">?themeTextColorOnPrimary</item>
+        <item name="colorAccent">?themeTextColorOnPrimary</item>
+    </style>
+
+
+    <style name="AppTheme.AntropometriaTheme.Toolbar">
+        <item name="android:background">?themePrimaryColor</item>
+        <item name="android:textColorPrimary">?themeTextColorOnPrimary</item>
+        <item name="android:textColorSecondary">?themeTextColorOnAccent</item>
+        <item name="colorControlNormal">@color/blanco</item>
+    </style>
+
+
+    <style name="SearchView" parent="Widget.AppCompat.SearchView">
+
+        <item name="searchIcon">@null</item>
+        <item name="queryBackground">@color/amarilloClaro</item>
+        <item name="searchHintIcon">@null</item>
+        <item name="closeIcon">@drawable/ic_cerrar</item>
+        <item name="android:textColorPrimary">@color/gris</item>
+        <item name="android:textColorHint">@color/gris</item>
+        <item name="android:tint">@color/gris</item>
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="MenuKeypad">
+        <item name="android:height">50dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/gris</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="AppTheme.AntropometriaTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AntropometriaTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AntropometriaTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+</resources>

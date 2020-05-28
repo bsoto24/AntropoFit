@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:padding="16dp"
+        android:layout_height="match_parent"
+        tools:context=".presentation.pacientes.PacientesActivity">
+
+    <TextView
+            android:layout_width="match_parent"
+            style="@style/AppTheme.AntropometriaTheme.TextSubTitleDark"
+            android:text="Agrega un nuevo grupo"
+            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:theme="@style/AppTheme.AntropometriaTheme.EditText"
+            android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_grupo"
+                android:layout_width="match_parent"
+                android:hint="Nombre del grupo"
+                android:maxLength="120"
+                android:maxLines="1"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+            android:id="@+id/btn_registrar_grupo"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            style="@style/AppTheme.AntropometriaTheme.ButtonPrimary"
+            android:text="Registrar"
+            android:padding="8dp"
+            android:layout_margin="16dp"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

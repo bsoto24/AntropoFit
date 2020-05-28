@@ -1,0 +1,23 @@
+<resources>
+
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <attr name="themePrimaryColor" format="reference" />
+    <attr name="themePrimaryDarkColor" format="reference" />
+    <attr name="themePrimaryLightColor" format="reference" />
+    <attr name="themeAccentColor" format="reference" />
+    <attr name="themeAccentDarkColor" format="reference" />
+    <attr name="themeAccentLightColor" format="reference" />
+    <attr name="themeBackgroundColor" format="reference" />
+    <attr name="themeTextColor" format="reference" />
+    <attr name="themeTextColorOnPrimary" format="reference" />
+    <attr name="themeTextColorOnAccent" format="reference" />
+    <attr name="themeTextColorLight" format="reference" />
+    <attr name="themeTextColorActive" format="reference" />
+    <attr name="themeTextColorInactive" format="reference" />
+    <attr name="themeTextColorError" format="reference" />
+
+</resources>
