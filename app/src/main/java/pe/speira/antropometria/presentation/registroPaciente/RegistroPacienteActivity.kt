@@ -54,7 +54,7 @@ class RegistroPacienteActivity : AppCompatActivity() {
                 grupoEntity?.let { grupo ->
                     pacienteViewModel.registrarPaciente(
                         PacienteEntity(
-                            grupoId = grupo.grupoId,
+                            grupoId = grupo.id,
                             dni = edt_dni.text.toString(),
                             nombre = edt_nombres.text.toString(),
                             apellidoPaterno = edt_apellido_paterno.text.toString(),

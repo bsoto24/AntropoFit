@@ -10,12 +10,13 @@ import java.util.*
 @Parcelize
 @Entity(tableName = "grupo_table")
 data class GrupoEntity(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "grupo_id") var grupoId: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int,
     @ColumnInfo(name = "grupo_nombre") var grupoNombre: String,
     @ColumnInfo(name = "fecha_creacion") var fechaCreacion: Date
 ) : Parcelable {
 
     override fun toString(): String {
-        return "GrupoEntity(grupoId=$grupoId, grupoNombre='$grupoNombre', fechaCreacion=${fechaCreacion.toString()})"
+        return "GrupoEntity(grupoId=$id, grupoNombre='$grupoNombre', fechaCreacion=${fechaCreacion.toString()})"
     }
+
 }

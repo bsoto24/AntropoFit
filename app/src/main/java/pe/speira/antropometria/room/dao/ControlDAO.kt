@@ -7,7 +7,7 @@ import pe.speira.antropometria.room.entities.ControlEntity
 @Dao
 interface ControlDAO {
 
-    @Query("SELECT * FROM control_table WHERE paciente_dni = :dni  ORDER BY control_id DESC")
+    @Query("SELECT * FROM control_table WHERE paciente_dni = :dni  ORDER BY id DESC")
     fun obtenerControles(dni: String): LiveData<List<ControlEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -1,18 +1,25 @@
 package pe.speira.antropometria.room.entities
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
-import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import kotlinx.android.parcel.Parcelize
-import java.io.Serializable
 import java.util.*
 
 @Parcelize
-@Entity(tableName = "control_table")
+@Entity(
+    tableName = "control_table",
+    foreignKeys = [
+        ForeignKey(
+            entity = PacienteEntity::class,
+            parentColumns = arrayOf("dni"),
+            childColumns = arrayOf("paciente_dni"),
+            onDelete = ForeignKey.CASCADE,
+            onUpdate = ForeignKey.CASCADE
+        )
+    ]
+)
 data class ControlEntity(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "control_id") var controlId: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int,
     @ColumnInfo(name = "paciente_dni") var pacienteDni: String,
     @ColumnInfo(name = "talla") var talla: Double,
     @ColumnInfo(name = "peso") var peso: Double,
@@ -21,7 +28,7 @@ data class ControlEntity(
 ) : Parcelable {
 
     override fun toString(): String {
-        return "ControlEntity(controlId=$controlId, pacienteDni='$pacienteDni', talla=$talla, peso=$peso, pTricipital=${antropometria.pTricipital}, pBicipital=${antropometria.pBicipital}, pSubescapular=${antropometria.pSubescapular}, pSuprailiaco=${antropometria.pSuprailiaco}, fechaRegistro='${fechaRegistro.toString()}')"
+        return "ControlEntity(controlId=$id, pacienteDni='$pacienteDni', talla=$talla, peso=$peso, pTricipital=${antropometria.pTricipital}, pBicipital=${antropometria.pBicipital}, pSubescapular=${antropometria.pSubescapular}, pSuprailiaco=${antropometria.pSuprailiaco}, fechaRegistro='${fechaRegistro.toString()}')"
     }
 
 }

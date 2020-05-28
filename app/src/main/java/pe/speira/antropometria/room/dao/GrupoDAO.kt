@@ -10,7 +10,7 @@ import pe.speira.antropometria.room.entities.GrupoEntity
 @Dao
 interface GrupoDAO {
 
-    @Query("SELECT * FROM grupo_table ORDER BY grupo_id DESC")
+    @Query("SELECT * FROM grupo_table ORDER BY id DESC")
     fun obtenerGrupos(): LiveData<List<GrupoEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

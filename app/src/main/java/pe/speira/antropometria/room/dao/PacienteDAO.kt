@@ -10,7 +10,7 @@ import pe.speira.antropometria.room.entities.PacienteEntity
 @Dao
 interface PacienteDAO {
 
-    @Query("SELECT * FROM paciente_table WHERE grupo_id = :grupoId  ORDER BY fecha_nacimiento DESC")
+    @Query("SELECT * FROM paciente_table WHERE grupoId = :grupoId  ORDER BY fecha_nacimiento DESC")
     fun obtenerPacientes(grupoId: Int): LiveData<List<PacienteEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

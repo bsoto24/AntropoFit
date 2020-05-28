@@ -37,7 +37,7 @@ class PacientesActivity : AppCompatActivity() {
 
     private fun setupObserver() {
         grupoEntity?.let { grupo ->
-            pacienteViewModel.obtenerPacientes(grupo.grupoId)
+            pacienteViewModel.obtenerPacientes(grupo.id)
                 .observe(this, Observer { pacientes ->
                     if (pacientes.isNotEmpty()) {
                         rv_pacientes.visibility = View.VISIBLE

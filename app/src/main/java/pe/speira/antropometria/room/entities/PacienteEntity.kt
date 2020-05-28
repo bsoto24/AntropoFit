@@ -1,18 +1,27 @@
 package pe.speira.antropometria.room.entities
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @Parcelize
-@Entity(tableName = "paciente_table")
+@Entity(
+    tableName = "paciente_table",
+    foreignKeys = [
+        ForeignKey(
+            entity = GrupoEntity::class,
+            parentColumns = arrayOf("id"),
+            childColumns = arrayOf("grupoId"),
+            onDelete = ForeignKey.CASCADE,
+            onUpdate = ForeignKey.CASCADE
+        )
+    ]
+)
 data class PacienteEntity(
 
-    @PrimaryKey(autoGenerate = false) @ColumnInfo(name = "dni") var dni: String,
-    @ColumnInfo(name = "grupo_id") var grupoId: Int,
+    @PrimaryKey(autoGenerate = false) var dni: String,
+    @ColumnInfo(name = "grupoId") var grupoId: Int,
     @ColumnInfo(name = "nombre") var nombre: String,
     @ColumnInfo(name = "apellido_paterno") var apellidoPaterno: String,
     @ColumnInfo(name = "apellido_materno") var apellidoMaterno: String,
