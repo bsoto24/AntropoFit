@@ -34,6 +34,8 @@ class DetallePacienteAdapter(
         notifyDataSetChanged()
     }
 
+    fun get(index: Int): ControlEntity = items[index]
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(controlEntity: ControlEntity) {

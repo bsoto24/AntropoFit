@@ -1,4 +1,4 @@
-package pe.speira.antropometria.room.repository
+package pe.speira.antropometria.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -16,6 +16,10 @@ class ControlRepository(aplication: Application) {
 
     suspend fun registrarControl(controlEntity: ControlEntity) {
         pacienteDAO?.registrarControl(controlEntity)
+    }
+
+    suspend fun eliminarControl(controlEntity: ControlEntity) {
+        pacienteDAO?.eliminarControl(controlEntity)
     }
 
 }

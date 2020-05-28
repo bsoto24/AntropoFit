@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_pacientes.*
 import pe.speira.antropometria.R
 import pe.speira.antropometria.room.entities.GrupoEntity
-import pe.speira.antropometria.room.viewmodel.PacienteViewModel
+import pe.speira.antropometria.viewmodel.PacienteViewModel
 import pe.speira.antropometria.presentation.detallePaciente.DetallePacienteActivity
 import pe.speira.antropometria.presentation.registroPaciente.RegistroPacienteActivity
 

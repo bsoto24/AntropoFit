@@ -1,4 +1,4 @@
-package pe.speira.antropometria.room.repository
+package pe.speira.antropometria.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData

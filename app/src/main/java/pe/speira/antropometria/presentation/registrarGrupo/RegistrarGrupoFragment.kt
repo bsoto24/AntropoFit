@@ -10,7 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_registrar_grupo.*
 import pe.speira.antropometria.R
 import pe.speira.antropometria.room.entities.GrupoEntity
-import pe.speira.antropometria.room.viewmodel.GrupoViewModel
+import pe.speira.antropometria.viewmodel.GrupoViewModel
 import java.util.*
 
 class RegistrarGrupoFragment : BottomSheetDialogFragment() {

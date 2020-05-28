@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_registro_paciente.container
 import pe.speira.antropometria.R
 import pe.speira.antropometria.room.entities.GrupoEntity
 import pe.speira.antropometria.room.entities.PacienteEntity
-import pe.speira.antropometria.room.viewmodel.PacienteViewModel
+import pe.speira.antropometria.viewmodel.PacienteViewModel
 import pe.speira.antropometria.utils.DatePickerFragment
 import java.text.SimpleDateFormat
 import java.util.*

@@ -7,11 +7,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_detalle_paciente.*
 import pe.speira.antropometria.R
 import pe.speira.antropometria.room.entities.PacienteEntity
-import pe.speira.antropometria.room.viewmodel.ControlViewModel
+import pe.speira.antropometria.viewmodel.ControlViewModel
 import pe.speira.antropometria.presentation.registroControl.RegistroControlActivity
 import pe.speira.antropometria.presentation.resultado.ResultadosActivity
 import pe.speira.antropometria.utils.ApplicationUtils.Companion.obtenerEdad
@@ -21,6 +23,7 @@ class DetallePacienteActivity : AppCompatActivity() {
     lateinit var adapter: DetallePacienteAdapter
     lateinit var paciente: PacienteEntity
     lateinit var controlViewModel: ControlViewModel
+    lateinit var touchHelper: ItemTouchHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +33,30 @@ class DetallePacienteActivity : AppCompatActivity() {
         setupToolbar("${paciente.nombre} ${paciente.apellidoPaterno}", true)
         setupPaciente(paciente)
         setupAdapter()
+        setupSwipe()
         setupButtons()
         setupObserver()
+    }
+
+    private fun setupSwipe() {
+        val itemTouchHelperCallback =
+            object :
+                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    controlViewModel.eliminarControl(adapter.get(viewHolder.adapterPosition))
+                }
+            }
+        touchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        touchHelper.attachToRecyclerView(rv_controles)
+
     }
 
     private fun setupViewModel() {

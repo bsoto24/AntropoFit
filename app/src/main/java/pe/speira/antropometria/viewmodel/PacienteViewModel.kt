@@ -1,4 +1,4 @@
-package pe.speira.antropometria.room.viewmodel
+package pe.speira.antropometria.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import pe.speira.antropometria.room.entities.PacienteEntity
-import pe.speira.antropometria.room.repository.PacienteRepository
+import pe.speira.antropometria.repository.PacienteRepository
 
 class PacienteViewModel(application: Application) : AndroidViewModel(application) {
 

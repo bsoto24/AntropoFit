@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_registro_control.*
 import pe.speira.antropometria.R
 import pe.speira.antropometria.room.entities.ControlEntity
 import pe.speira.antropometria.room.entities.PacienteEntity
-import pe.speira.antropometria.room.viewmodel.ControlViewModel
+import pe.speira.antropometria.viewmodel.ControlViewModel
 import pe.speira.antropometria.presentation.resultado.ResultadosActivity
 import pe.speira.antropometria.room.entities.AntropometriaEntity
 import java.util.*

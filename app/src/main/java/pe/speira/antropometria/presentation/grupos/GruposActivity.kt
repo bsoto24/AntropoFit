@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_grupos.*
 import pe.speira.antropometria.R
 import pe.speira.antropometria.room.entities.GrupoEntity
-import pe.speira.antropometria.room.viewmodel.GrupoViewModel
+import pe.speira.antropometria.viewmodel.GrupoViewModel
 import pe.speira.antropometria.presentation.pacientes.PacientesActivity
 import pe.speira.antropometria.presentation.registrarGrupo.RegistrarGrupoFragment
 
