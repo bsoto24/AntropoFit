@@ -14,6 +14,6 @@ interface ControlDAO {
     fun obtenerControles(dni: String): LiveData<List<ControlEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun registrarControl(controlEntity: ControlEntity)
+    suspend fun registrarControl(controlEntity: ControlEntity)
 
 }

@@ -14,6 +14,6 @@ interface PacienteDAO {
     fun obtenerPacientes(grupoId: Int): LiveData<List<PacienteEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun registrarPaciente(pacienteEntity: PacienteEntity)
+    suspend fun registrarPaciente(pacienteEntity: PacienteEntity)
 
 }

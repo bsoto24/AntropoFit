@@ -1,7 +1,6 @@
 package pe.speira.antropometria.room.repository
 
 import android.app.Application
-import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import pe.speira.antropometria.room.entities.ControlEntity
@@ -15,10 +14,8 @@ class ControlRepository(aplication: Application) {
     fun obtenerControles(dni: String): LiveData<List<ControlEntity>> =
         pacienteDAO?.obtenerControles(dni) ?: MutableLiveData()
 
-    fun registrarControl(controlEntity: ControlEntity) {
-        AsyncTask.execute {
-            pacienteDAO?.registrarControl(controlEntity)
-        }
+    suspend fun registrarControl(controlEntity: ControlEntity) {
+        pacienteDAO?.registrarControl(controlEntity)
     }
 
 }

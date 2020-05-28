@@ -14,6 +14,6 @@ interface GrupoDAO {
     fun obtenerGrupos(): LiveData<List<GrupoEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun crearGrupo(grupoEntity: GrupoEntity)
+    suspend fun crearGrupo(grupoEntity: GrupoEntity)
 
 }

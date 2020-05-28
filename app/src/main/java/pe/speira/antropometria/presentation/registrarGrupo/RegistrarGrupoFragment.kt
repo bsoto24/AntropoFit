@@ -48,5 +48,4 @@ class RegistrarGrupoFragment : BottomSheetDialogFragment() {
         }
     }
 
-
 }
