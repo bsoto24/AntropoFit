@@ -6,8 +6,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_pacientes.*
+import kotlinx.android.synthetic.main.activity_pacientes.img_empty
+import kotlinx.android.synthetic.main.activity_pacientes.toolbar
 import pe.speira.antropometria.R
 import pe.speira.antropometria.room.entities.GrupoEntity
 import pe.speira.antropometria.viewmodel.PacienteViewModel
@@ -19,6 +23,7 @@ class PacientesActivity : AppCompatActivity() {
     private lateinit var adapter: PacientesAdapter
     private var grupoEntity: GrupoEntity? = null
     private lateinit var pacienteViewModel: PacienteViewModel
+    private lateinit var touchHelper: ItemTouchHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +32,7 @@ class PacientesActivity : AppCompatActivity() {
         obtenerGrupo()
         setupToolbar(grupoEntity?.grupoNombre, true)
         setupAdapter()
+        setupSwipe()
         setupButtons()
         setupObserver()
     }
@@ -79,6 +85,27 @@ class PacientesActivity : AppCompatActivity() {
             intent.putExtra("grupo", grupoEntity)
             startActivity(intent)
         }
+    }
+
+    private fun setupSwipe() {
+        val itemTouchHelperCallback =
+            object :
+                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    pacienteViewModel.eliminarPaciente(adapter.get(viewHolder.adapterPosition))
+                }
+            }
+        touchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        touchHelper.attachToRecyclerView(rv_pacientes)
+
     }
 
     override fun onBackPressed() {

@@ -17,6 +17,9 @@ interface ControlDAO {
     @Delete
     suspend fun eliminarControl(controlEntity: ControlEntity)
 
+    @Query("DELETE FROM control_table WHERE pacienteDni = :dni")
+    suspend fun eliminarControles(dni: String)
+
     @Transaction @Query("SELECT * FROM paciente_table WHERE dni = :dni")
     fun obtenerPacienteControles(dni: String): LiveData<PacienteControlEntity>
 

@@ -22,4 +22,10 @@ class PacienteViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    fun eliminarPaciente(pacienteEntity: PacienteEntity) {
+        viewModelScope.launch {
+            repository.eliminarPaciente(pacienteEntity)
+        }
+    }
+
 }

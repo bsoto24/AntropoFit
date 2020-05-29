@@ -1,10 +1,7 @@
 package pe.speira.antropometria.room.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import pe.speira.antropometria.room.entities.PacienteEntity
 
 @Dao
@@ -15,5 +12,8 @@ interface PacienteDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun registrarPaciente(pacienteEntity: PacienteEntity)
+
+    @Delete
+    suspend fun eliminarPaciente(pacienteEntity: PacienteEntity)
 
 }

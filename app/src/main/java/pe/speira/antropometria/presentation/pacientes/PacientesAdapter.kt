@@ -17,7 +17,9 @@ class PacientesAdapter(
 ) : RecyclerView.Adapter<PacientesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_paciente, parent, false))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_paciente, parent, false)
+        )
 
     override fun getItemCount(): Int = items.size
 
@@ -27,6 +29,8 @@ class PacientesAdapter(
         this.items = items
         notifyDataSetChanged()
     }
+
+    fun get(index: Int): PacienteEntity = items[index]
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

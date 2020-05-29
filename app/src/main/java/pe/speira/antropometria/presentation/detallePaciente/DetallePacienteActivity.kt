@@ -69,12 +69,9 @@ class DetallePacienteActivity : AppCompatActivity() {
         pacienteEntity?.let {
             controlViewModel.obtenerPacienteControl(it.dni)
                 ?.observe(this, Observer { pacienteControlEntity ->
-                    Log.e("PACIENTE:", pacienteControlEntity.pacienteEntity.toString())
+                    Log.e("PACIENTE:", "${pacienteControlEntity.pacienteEntity.toString()}\n")
                     pacienteControlEntity.controlList.forEach { control ->
-                        Log.e(
-                            "CONTROL",
-                            control.toString()
-                        )
+                        Log.e("CONTROL", "${control.toString()}\n")
                     }
                 })
         }
