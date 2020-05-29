@@ -12,7 +12,7 @@ import java.util.*
         ForeignKey(
             entity = PacienteEntity::class,
             parentColumns = arrayOf("dni"),
-            childColumns = arrayOf("paciente_dni"),
+            childColumns = arrayOf("pacienteDni"),
             onDelete = ForeignKey.CASCADE,
             onUpdate = ForeignKey.CASCADE
         )
@@ -20,7 +20,7 @@ import java.util.*
 )
 data class ControlEntity(
     @PrimaryKey(autoGenerate = true) var id: Int,
-    @ColumnInfo(name = "paciente_dni") var pacienteDni: String,
+    @ColumnInfo(name = "pacienteDni", index = true) var pacienteDni: String,
     @ColumnInfo(name = "talla") var talla: Double,
     @ColumnInfo(name = "peso") var peso: Double,
     @Embedded var antropometria: AntropometriaEntity,

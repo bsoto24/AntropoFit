@@ -21,7 +21,7 @@ import java.util.*
 data class PacienteEntity(
 
     @PrimaryKey(autoGenerate = false) var dni: String,
-    @ColumnInfo(name = "grupoId") var grupoId: Int,
+    @ColumnInfo(name = "grupoId", index = true) var grupoId: Int,
     @ColumnInfo(name = "nombre") var nombre: String,
     @ColumnInfo(name = "apellido_paterno") var apellidoPaterno: String,
     @ColumnInfo(name = "apellido_materno") var apellidoMaterno: String,
