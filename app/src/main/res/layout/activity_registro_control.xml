@@ -1,166 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context=".presentation.registroControl.RegistroControlActivity">
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".presentation.registroControl.RegistroControlActivity">
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
-                    style="@style/AppTheme.AntropometriaTheme.TextTitleDark"
-                    android:text="Agrega un nuevo control"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_margin="16dp"
-                    android:layout_height="wrap_content"/>
+                style="@style/AppTheme.AntropometriaTheme.TextTitleDark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:text="Agrega un nuevo control" />
 
             <ImageView
-                    android:id="@+id/btn_cerrar"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="35dp"
-                    android:layout_margin="16dp"
-                    android:padding="4dp"
-                    android:src="@drawable/ic_cerrar"
-                    android:layout_height="35dp"/>
+                android:id="@+id/btn_cerrar"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="16dp"
+                android:padding="4dp"
+                android:src="@drawable/ic_cerrar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
 
         <TextView
-                android:layout_width="match_parent"
-                style="@style/AppTheme.AntropometriaTheme.TextParagraphLight"
-                android:gravity="center"
-                android:padding="8dp"
-                android:background="@drawable/chip_gris"
-                android:layout_margin="16dp"
-                android:text="Todos los campos son obligatorios y deben ser ingresados de acuerdo a su unidad de medida"
-                android:layout_height="wrap_content"/>
+            style="@style/AppTheme.AntropometriaTheme.TextParagraphLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/chip_gris"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Todos los campos son obligatorios y deben ser ingresados de acuerdo a su unidad de medida" />
 
         <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:theme="@style/AppTheme.AntropometriaTheme.EditText"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:theme="@style/AppTheme.AntropometriaTheme.EditText">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_peso"
-                    android:layout_width="match_parent"
-                    android:hint="Peso (kg)"
-                    android:maxLines="1"
-                    android:inputType="numberDecimal"
-                    android:imeOptions="actionNext"
-                    android:layout_height="wrap_content"/>
+                android:id="@+id/edt_peso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Peso (kg)"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:theme="@style/AppTheme.AntropometriaTheme.EditText"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:theme="@style/AppTheme.AntropometriaTheme.EditText">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_talla"
-                    android:layout_width="match_parent"
-                    android:hint="Talla (m)"
-                    android:maxLines="1"
-                    android:inputType="numberDecimal"
-                    android:imeOptions="actionNext"
-                    android:layout_height="wrap_content"/>
+                android:id="@+id/edt_talla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Talla (m)"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:theme="@style/AppTheme.AntropometriaTheme.EditText"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:theme="@style/AppTheme.AntropometriaTheme.EditText">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_pTricipital"
-                    android:layout_width="match_parent"
-                    android:hint="Pliegue tricipital (mm)"
-                    android:maxLines="1"
-                    android:inputType="numberDecimal"
-                    android:imeOptions="actionNext"
-                    android:layout_height="wrap_content"/>
+                android:id="@+id/edt_pTricipital"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pliegue tricipital (mm)"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:theme="@style/AppTheme.AntropometriaTheme.EditText"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:theme="@style/AppTheme.AntropometriaTheme.EditText">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_pBicipital"
-                    android:layout_width="match_parent"
-                    android:hint="Pliegue bicipital (mm)"
-                    android:maxLines="1"
-                    android:inputType="numberDecimal"
-                    android:imeOptions="actionNext"
-                    android:layout_height="wrap_content"/>
+                android:id="@+id/edt_pBicipital"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pliegue bicipital (mm)"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:theme="@style/AppTheme.AntropometriaTheme.EditText"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:theme="@style/AppTheme.AntropometriaTheme.EditText">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_pSubEscapital"
-                    android:layout_width="match_parent"
-                    android:hint="Pliegue subescapular (mm)"
-                    android:maxLines="1"
-                    android:inputType="numberDecimal"
-                    android:imeOptions="actionNext"
-                    android:layout_height="wrap_content"/>
+                android:id="@+id/edt_pSubEscapital"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pliegue subescapular (mm)"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:theme="@style/AppTheme.AntropometriaTheme.EditText"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:theme="@style/AppTheme.AntropometriaTheme.EditText">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_pSuprailiaco"
-                    android:layout_width="match_parent"
-                    android:hint="Pliegue suprailíaco (mm)"
-                    android:maxLines="1"
-                    android:inputType="numberDecimal"
-                    android:imeOptions="actionDone"
-                    android:layout_height="wrap_content"/>
+                android:id="@+id/edt_pSuprailiaco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pliegue suprailíaco (mm)"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:theme="@style/AppTheme.AntropometriaTheme.EditText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_nota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nota"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-                android:id="@+id/btn_registrar_control"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                style="@style/AppTheme.AntropometriaTheme.ButtonPrimary"
-                android:text="Registrar control"
-                android:padding="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="16dp"
-                android:layout_height="wrap_content"/>
+            android:id="@+id/btn_registrar_control"
+            style="@style/AppTheme.AntropometriaTheme.ButtonPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:padding="8dp"
+            android:text="Registrar control" />
 
     </LinearLayout>
 

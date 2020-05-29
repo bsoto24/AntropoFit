@@ -43,7 +43,8 @@ class RegistroControlActivity : AppCompatActivity() {
                 edt_pSuprailiaco.text.toString().trim().isNotEmpty() and
                 edt_pSubEscapital.text.toString().trim().isNotEmpty() and
                 edt_pBicipital.text.toString().trim().isNotEmpty() and
-                edt_pTricipital.text.toString().trim().isNotEmpty()
+                edt_pTricipital.text.toString().trim().isNotEmpty() and
+                edt_nota.text.toString().trim().isNotEmpty()
             ) {
                 pacienteEntity?.let { paciente ->
                     val controlEntity = ControlEntity(
@@ -51,6 +52,7 @@ class RegistroControlActivity : AppCompatActivity() {
                         pacienteDni = paciente.dni,
                         peso = edt_peso.text.toString().toDouble(),
                         talla = edt_talla.text.toString().toDouble(),
+                        nota = edt_nota.text.toString(),
                         antropometria = AntropometriaEntity(
                             pSuprailiaco = edt_pSuprailiaco.text.toString().toDouble(),
                             pSubescapular = edt_pSubEscapital.text.toString().toDouble(),

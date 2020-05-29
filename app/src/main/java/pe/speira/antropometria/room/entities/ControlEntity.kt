@@ -23,6 +23,7 @@ data class ControlEntity(
     @ColumnInfo(name = "pacienteDni", index = true) var pacienteDni: String,
     @ColumnInfo(name = "talla") var talla: Double,
     @ColumnInfo(name = "peso") var peso: Double,
+    @ColumnInfo(name = "nota") var nota: String,
     @Embedded var antropometria: AntropometriaEntity,
     @ColumnInfo(name = "fecha_registro") var fechaRegistro: Date
 ) : Parcelable {

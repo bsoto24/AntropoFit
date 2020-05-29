@@ -44,6 +44,7 @@ class ResultadosActivity : AppCompatActivity() {
             tv_pSubEscapital.text = String.format("%.2f", control.antropometria.pSubescapular)
             tv_pSuprailiaco.text = String.format("%.2f", control.antropometria.pSuprailiaco)
             tv_pTricipital.text = String.format("%.2f", control.antropometria.pTricipital)
+            tv_nota.text = control.nota
         }
     }
 
