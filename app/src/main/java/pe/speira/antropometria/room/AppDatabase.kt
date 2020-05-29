@@ -7,18 +7,15 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import pe.speira.antropometria.room.entities.ControlEntity
-import pe.speira.antropometria.room.entities.GrupoEntity
-import pe.speira.antropometria.room.entities.PacienteEntity
 import pe.speira.antropometria.room.converters.Converters
 import pe.speira.antropometria.room.dao.ControlDAO
 import pe.speira.antropometria.room.dao.GrupoDAO
 import pe.speira.antropometria.room.dao.PacienteDAO
-import pe.speira.antropometria.room.entities.EtiquetaEntity
+import pe.speira.antropometria.room.entities.*
 
 @Database(
-    entities = [GrupoEntity::class, PacienteEntity::class, ControlEntity::class, EtiquetaEntity::class],
-    version = 2,
+    entities = [GrupoEntity::class, PacienteEntity::class, ControlEntity::class, EtiquetaEntity::class, DeporteEntity::class],
+    version = 3,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
