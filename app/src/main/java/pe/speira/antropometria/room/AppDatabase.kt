@@ -13,7 +13,7 @@ import pe.speira.antropometria.room.dao.ControlDAO
 import pe.speira.antropometria.room.dao.GrupoDAO
 import pe.speira.antropometria.room.dao.PacienteDAO
 
-@Database(entities = [GrupoEntity::class, PacienteEntity::class, ControlEntity::class], version = 1)
+@Database(entities = [GrupoEntity::class, PacienteEntity::class, ControlEntity::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 

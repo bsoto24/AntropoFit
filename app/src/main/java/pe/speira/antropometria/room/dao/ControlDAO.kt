@@ -3,6 +3,7 @@ package pe.speira.antropometria.room.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import pe.speira.antropometria.room.entities.ControlEntity
+import pe.speira.antropometria.room.entities.PacienteControlEntity
 
 @Dao
 interface ControlDAO {
@@ -15,5 +16,8 @@ interface ControlDAO {
 
     @Delete
     suspend fun eliminarControl(controlEntity: ControlEntity)
+
+    @Transaction @Query("SELECT * FROM paciente_table WHERE dni = :dni")
+    fun obtenerPacienteControles(dni: String): LiveData<PacienteControlEntity>
 
 }

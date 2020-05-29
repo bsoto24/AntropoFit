@@ -9,10 +9,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_grupos.*
 import pe.speira.antropometria.R
-import pe.speira.antropometria.room.entities.GrupoEntity
-import pe.speira.antropometria.viewmodel.GrupoViewModel
 import pe.speira.antropometria.presentation.pacientes.PacientesActivity
 import pe.speira.antropometria.presentation.registrarGrupo.RegistrarGrupoFragment
+import pe.speira.antropometria.viewmodel.GrupoViewModel
 
 class GruposActivity : AppCompatActivity() {
 
@@ -35,7 +34,7 @@ class GruposActivity : AppCompatActivity() {
     }
 
     private fun setupObserver() {
-        grupoViewModel.obtenerGrupos().observe(this, Observer<List<GrupoEntity>> { grupos ->
+        grupoViewModel.obtenerGrupos().observe(this, Observer { grupos ->
             if (grupos.isNotEmpty()) {
                 rv_grupos.visibility = View.VISIBLE
                 img_empty.visibility = View.GONE

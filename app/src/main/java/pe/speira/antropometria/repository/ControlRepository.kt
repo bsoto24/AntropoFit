@@ -22,4 +22,6 @@ class ControlRepository(aplication: Application) {
         pacienteDAO?.eliminarControl(controlEntity)
     }
 
+    fun obtenerPacientesControles(dni: String) = pacienteDAO?.obtenerPacienteControles(dni)
+
 }
