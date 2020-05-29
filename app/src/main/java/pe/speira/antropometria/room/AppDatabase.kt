@@ -12,8 +12,9 @@ import pe.speira.antropometria.room.converters.Converters
 import pe.speira.antropometria.room.dao.ControlDAO
 import pe.speira.antropometria.room.dao.GrupoDAO
 import pe.speira.antropometria.room.dao.PacienteDAO
+import pe.speira.antropometria.room.entities.EtiquetaEntity
 
-@Database(entities = [GrupoEntity::class, PacienteEntity::class, ControlEntity::class], version = 1, exportSchema = false)
+@Database(entities = [GrupoEntity::class, PacienteEntity::class, ControlEntity::class, EtiquetaEntity::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -24,6 +25,7 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
 
         private const val DATABASE_NAME = "antropometria"
+
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
